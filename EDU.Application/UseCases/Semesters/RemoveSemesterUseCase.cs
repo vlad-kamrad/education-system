@@ -17,6 +17,8 @@ namespace EDU.Application.UseCases.Semesters
 
         public async Task Execute(RemoveSemesterInput input)
         {
+            if (input == null) { outputPort.WriteError(""); return; }
+
             bool sucess = await semesterRepository.Remove(input.Id);
             outputPort.Standart(new RemoveSemesterOutput(sucess));
         }

@@ -14,7 +14,7 @@ namespace EDU.WebApi.Controllers
     [ApiController]
     public class SemesterController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("get")]
         public async Task<IActionResult> GetAllSemesters(
             [FromServices] IGetAllSemestersUseCase getAllSemestersUseCase,
             [FromServices] GetAllSemestersPresenter getAllSemestersPresenter)
@@ -23,7 +23,7 @@ namespace EDU.WebApi.Controllers
             return getAllSemestersPresenter.ViewModel;
         }
 
-        [HttpPost]
+        [HttpPost("information")]
         public async Task<IActionResult> GetSemesterInfo(
             [FromServices] IGetSemesterInfoUseCase getSemesterInfoUseCase,
             [FromServices] GetSemesterInfoPresenter getSemesterInfoPresenter,
@@ -33,7 +33,7 @@ namespace EDU.WebApi.Controllers
             return getSemesterInfoPresenter.ViewModel;
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateSemester(
             [FromServices] ICreateSemesterUseCase createSemesterUseCase,
             [FromServices] CreateSemesterPresenter createSemesterPresenter,
@@ -43,7 +43,7 @@ namespace EDU.WebApi.Controllers
             return createSemesterPresenter.ViewModel;
         }
 
-        [HttpPut]
+        [HttpPut("update")]
         public async Task<IActionResult> UpdateSemester(
             [FromServices] IUpdateSemesterUseCase updateSemesterUseCase,
             [FromServices] UpdateSemesterPresenter updateSemesterPresenter,
@@ -53,7 +53,7 @@ namespace EDU.WebApi.Controllers
             return updateSemesterPresenter.ViewModel;
         }
 
-        [HttpDelete]
+        [HttpDelete("remove")]
         public async Task<IActionResult> RemoveSemester(
             [FromServices] IRemoveSemesterUseCase removeSemesterUseCase,
             [FromServices] RemoveSemesterPresenter removeSemesterPresenter,
@@ -63,13 +63,13 @@ namespace EDU.WebApi.Controllers
             return removeSemesterPresenter.ViewModel;
         }
 
-        [HttpPost]
+        [HttpPost("add-exam")]
         public async Task<IActionResult> AddExamToSemester()
         {
             throw new NotImplementedException();
         }
 
-        [HttpPost]
+        [HttpPost("create-course")]
         public async Task<IActionResult> CreateEducationalCourse(
             [FromServices] ICreateEducationalCourseUseCase createEducationalCourseUseCase,
             [FromServices] CreateEducationalCoursePresenter createEducationalCoursePresenter,
@@ -79,7 +79,7 @@ namespace EDU.WebApi.Controllers
             return createEducationalCoursePresenter.ViewModel;
         }
 
-        [HttpPost]
+        [HttpPost("add-exam-results")]
         public async Task<IActionResult> AddExamResults()
         {
             throw new NotImplementedException();

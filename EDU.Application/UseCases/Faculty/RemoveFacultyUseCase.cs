@@ -17,7 +17,9 @@ namespace EDU.Application.UseCases.Faculty
 
         public async Task Execute(RemoveFacultyInput input)
         {
-            if (await facultyRepository.Get(input.FacultyId) == null) { outputPort.NotFound(""); }
+            if (input == null) { outputPort.WriteError(""); return; }
+
+            if (await facultyRepository.Get(input.FacultyId) == null) { outputPort.NotFound(""); return; }
 
             bool success = await facultyRepository.Remove(input.FacultyId);
             outputPort.Standart(new RemoveFacultyOutput(success));

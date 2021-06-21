@@ -30,7 +30,7 @@ namespace EDU.WebApi.Controllers
             return loginPresenter.ViewModel;
         }
 
-        [HttpPost]
+        [HttpPost("change-password")]
         public async Task<IActionResult> ChangePassword(
             [FromServices] IChangePasswordUseCase changePasswordUseCase,
             [FromServices] ChangePasswordPresenter changePasswordPresenter,
@@ -40,7 +40,7 @@ namespace EDU.WebApi.Controllers
             return changePasswordPresenter.ViewModel;
         }
 
-        [HttpPut]
+        [HttpPut("change-role")]
         public async Task<IActionResult> ChangeRole(
             [FromServices] IChangeRoleUseCase changeRoleUseCase,
             [FromServices] ChangeRolePresenter changeRolePresenter,
@@ -50,7 +50,7 @@ namespace EDU.WebApi.Controllers
             return changeRolePresenter.ViewModel;
         }
 
-        [HttpGet]
+        [HttpGet("get")]
         public async Task<IActionResult> GetAllUsers(
             [FromServices] IGetAllUsersUseCase getAllUsersUseCase,
             [FromServices] GetAllUsersPresenter getAllUsersPresenter)

@@ -17,7 +17,7 @@ namespace EDU.Application.UseCases.Departments
 
         public async Task Execute(CreateDisciplineInput input)
         {
-            if (input == null) { outputPort.WriteError(""); }
+            if (input == null) { outputPort.WriteError(""); return; }
             if (await departmentRepository.GetDepartment(input.DepartmentId) == null) { outputPort.NotFound(""); }
 
             var disciplineId = await departmentRepository.CreateDiscipline(input.DepartmentId, input.Name, input.Description);

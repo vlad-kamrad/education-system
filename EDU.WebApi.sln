@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDU.WebApi", "EDU.WebApi\ED
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDU.Infrastructure", "EDU.Infrastructure\EDU.Infrastructure.csproj", "{25B021B7-E644-458F-9725-36C71200CCA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDU.Domain", "EDU.Domain\EDU.Domain.csproj", "{06FDDA49-E951-492A-AAC8-709C4191FEB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDU.Domain", "EDU.Domain\EDU.Domain.csproj", "{06FDDA49-E951-492A-AAC8-709C4191FEB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDU.Application", "EDU.Application\EDU.Application.csproj", "{BC08BFB6-083A-4301-9E76-E9E3A8257342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDU.Application", "EDU.Application\EDU.Application.csproj", "{BC08BFB6-083A-4301-9E76-E9E3A8257342}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDU.Tests", "EDU.Tests\EDU.Tests.csproj", "{4711430A-38BE-4040-9268-3DE515374E12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BC08BFB6-083A-4301-9E76-E9E3A8257342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC08BFB6-083A-4301-9E76-E9E3A8257342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC08BFB6-083A-4301-9E76-E9E3A8257342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4711430A-38BE-4040-9268-3DE515374E12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4711430A-38BE-4040-9268-3DE515374E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4711430A-38BE-4040-9268-3DE515374E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4711430A-38BE-4040-9268-3DE515374E12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

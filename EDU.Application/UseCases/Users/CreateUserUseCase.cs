@@ -22,6 +22,8 @@ namespace EDU.Application.UseCases.Users
 
         public async Task Execute(CreateUserInput input)
         {
+            if (input == null) { outputPort.WriteError(""); return; }
+
             bool success = await userRepository.Create(
                 input.Username,
                 passwordHasher.EncodePassword(input.Password),

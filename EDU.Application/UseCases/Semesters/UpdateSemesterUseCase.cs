@@ -17,7 +17,8 @@ namespace EDU.Application.UseCases.Semesters
 
         public async Task Execute(UpdateSemesterInput input)
         {
-            if (await semesterRepository.Get(input.UpdatedSemester.Id) == null) { outputPort.NotFound(""); }
+            if (input == null) { outputPort.WriteError(""); return; }
+            if (await semesterRepository.Get(input.UpdatedSemester.Id) == null) { outputPort.NotFound(""); return; }
             bool success = await semesterRepository.Update(input.UpdatedSemester);
             outputPort.Standart(new UpdateSemesterOutput(success));
         }

@@ -18,7 +18,7 @@ namespace EDU.WebApi.Controllers
     [ApiController]
     public class DepartmentController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("get")]
         public async Task<IActionResult> GetAllDepartments(
             [FromServices] IGetAllDepartmentsUseCase getAllDepartmentsUseCase,
             [FromServices] GetAllDepartmentsPresenter getAllDepartmentsPresenter)
@@ -37,7 +37,7 @@ namespace EDU.WebApi.Controllers
             return createDepartmentPresenter.ViewModel;
         }
 
-        [HttpPut]
+        [HttpPut("update")]
         public async Task<IActionResult> UpdateDepartment(
             [FromServices] IUpdateDepartmentUseCase updateDepartmentUseCase,
             [FromServices] UpdateDepartmentPresenter updateDepartmentPresenter,
@@ -47,7 +47,7 @@ namespace EDU.WebApi.Controllers
             return updateDepartmentPresenter.ViewModel;
         }
 
-        [HttpDelete]
+        [HttpDelete("remove")]
         public async Task<IActionResult> RemoveDepartment(
             [FromServices] IRemoveDepartmentUseCase removeDepartmentUseCase,
             [FromServices] RemoveDepartmentPresenter removeDepartmentPresenter,
@@ -59,7 +59,7 @@ namespace EDU.WebApi.Controllers
 
         // Disciplines in current department
         // Create dis in dep
-        [HttpPost]
+        [HttpPost("create-discipline")]
         public async Task<IActionResult> CreateDiscipline(
             [FromServices] ICreateDisciplineUseCase createDisciplineUseCase,
             [FromServices] CreateDisciplinePresenter createDisciplinePresenter,
@@ -69,7 +69,7 @@ namespace EDU.WebApi.Controllers
             return createDisciplinePresenter.ViewModel;
         }
 
-        [HttpDelete]
+        [HttpDelete("delete-discipline")]
         public async Task<IActionResult> DeleteDiscipline(
             [FromServices] IDeleteDisciplineUseCase deleteDisciplineUseCase,
             [FromServices] DeleteDisciplinePresenter deleteDisciplinePresenter,

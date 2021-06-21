@@ -19,8 +19,8 @@ namespace EDU.Application.UseCases.Departments
 
         public async Task Execute(UpdateDepartmentInput input)
         {
-            if (input == null) { outputPort.WriteError(""); }
-            if (await departmentRepository.GetDepartment(input.UpdatedDepartment.Id) == null) { outputPort.NotFound(""); }
+            if (input == null) { outputPort.WriteError(""); return; }
+            if (await departmentRepository.GetDepartment(input.UpdatedDepartment.Id) == null) { outputPort.NotFound(""); return; }
 
             bool success = await departmentRepository.Update(input.UpdatedDepartment);
             outputPort.Standart(new UpdateDepartmentOutput(success));

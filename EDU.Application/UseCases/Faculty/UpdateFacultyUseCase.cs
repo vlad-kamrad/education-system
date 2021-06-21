@@ -17,7 +17,9 @@ namespace EDU.Application.UseCases.Faculty
 
         public async Task Execute(UpdateFacultyInput input)
         {
-            if (await facultyRepository.Get(input.UpdateFaculty.Id) == null) { outputPort.NotFound(""); }
+            if (input == null) { outputPort.WriteError(""); return; }
+
+            if (await facultyRepository.Get(input.UpdateFaculty.Id) == null) { outputPort.NotFound(""); return; }
 
             bool success = await facultyRepository.Update(input.UpdateFaculty);
             outputPort.Standart(new UpdateFacultyOutput(success));

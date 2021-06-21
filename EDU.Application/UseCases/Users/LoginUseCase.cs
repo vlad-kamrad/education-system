@@ -24,7 +24,12 @@ namespace EDU.Application.UseCases.Users
         }
         public async Task Execute(LoginInput input)
         {
-            if (await userRepository.Get(input.Username) == null) { outputPort.NotFound($"User {input.Username} Not Found"); }
+            if (input == null) { outputPort.WriteError("Input data is null"); return; }
+
+            if (await userRepository.Get(input.Username) == null) { 
+                outputPort.NotFound($"User {input.Username} Not Found");
+                return;
+            }
 
             var token = await authService.GenerateAccessToken(input.Username, input.Password);
             outputPort.Standart(new LoginOutput(token));

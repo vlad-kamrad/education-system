@@ -22,8 +22,10 @@ namespace EDU.Application.UseCases.Users
 
         public async Task Execute(ChangePasswordInput input)
         {
+            if (input == null) { outputPort.WriteError(""); return; }
+
             var user = await userRepository.Get(input.UserId);
-            if (user == null) { outputPort.NotFound(""); }
+            if (user == null) { outputPort.NotFound(""); return; }
 
             user.Password = passwordHasher.EncodePassword(input.NewPassword);
             bool success = await userRepository.Update(user);

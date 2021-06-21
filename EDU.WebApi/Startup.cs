@@ -23,6 +23,7 @@ using EDU.Application.UseCases.Departments;
 using EDU.WebApi.Presenters;
 using EDU.Domain.Repositories;
 using EDU.Application;
+using Microsoft.OpenApi.Models;
 
 namespace EDU.WebApi
 {
@@ -54,6 +55,7 @@ namespace EDU.WebApi
                 .AddHttpContextAccessor()
                 .AddControllers()
                 .AddControllersAsServices();
+            services.AddSwaggerGen(/*x => x.SwaggerDoc("v1", new OpenApiInfo { Title = "Education System", Version = "v1" })*/);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,6 +76,10 @@ namespace EDU.WebApi
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(x => x.SwaggerEndpoint("/swagger/v1/swagger.json", "Education System Api v1"));
         }
     }
 }

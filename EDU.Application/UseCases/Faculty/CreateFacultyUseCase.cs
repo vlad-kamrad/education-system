@@ -17,7 +17,7 @@ namespace EDU.Application.UseCases.Faculty
 
         public async Task Execute(CreateFacultyInput input)
         {
-            if (input == null) { outputPort.WriteError(""); }
+            if (input == null) { outputPort.WriteError(""); return; }
 
             int facultyId = await facultyRepository.Create(input.Title, input.Head, input.Subhead);
 

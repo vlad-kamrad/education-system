@@ -18,6 +18,8 @@ namespace EDU.Application.UseCases.Semesters
 
         public async Task Execute(CreateSemesterInput input)
         {
+            if (input == null) { outputPort.WriteError(""); return; }
+
             bool success = await semesterRepository.Create(
                 new Semester() { StartDate = input.Start, EndDate = input.End });
             outputPort.Standart(new CreateSemesterOutput(success));

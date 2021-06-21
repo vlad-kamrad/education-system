@@ -17,7 +17,7 @@ namespace EDU.Application.UseCases.Departments
 
         public async Task Execute(DeleteDisciplineInput input)
         {
-            if (input == null) { outputPort.WriteError(""); }
+            if (input == null) { outputPort.WriteError(""); return; }
             if (await departmentRepository.GetDiscipline(input.DisciplineId) == null) { outputPort.NotFound(""); }
 
             bool success = await departmentRepository.RemoveDiscipline(input.DisciplineId);

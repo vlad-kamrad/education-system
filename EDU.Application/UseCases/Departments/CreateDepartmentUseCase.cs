@@ -18,7 +18,7 @@ namespace EDU.Application.UseCases.Departments
 
         public async Task Execute(CreateDepartmentInput input)
         {
-            if (input == null) { createDepartmentOutputPort.WriteError("Depart is empt"); }
+            if (input == null) { createDepartmentOutputPort.WriteError("Department is empty"); return; }
 
 
             // Vajno!!!

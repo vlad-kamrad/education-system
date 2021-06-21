@@ -17,7 +17,7 @@ namespace EDU.Application.UseCases.Groups
 
         public async Task Execute(CreateGroupInput input)
         {
-            if (input == null) { outputPort.WriteError(""); }
+            if (input == null) { outputPort.WriteError(""); return; }
 
             bool success = await groupRepository.Create(input.Title, input.Curator, input.HeadMan);
             outputPort.Standart(new CreateGroupOutput(success));

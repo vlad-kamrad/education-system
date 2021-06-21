@@ -10,7 +10,7 @@ namespace EDU.WebApi.Presenters.Group
 
         public void NotFound(string message)
         {
-            throw new NotImplementedException();
+            ViewModel = new NotFoundResult();
         }
 
         public void Standart(CreateGroupOutput output)

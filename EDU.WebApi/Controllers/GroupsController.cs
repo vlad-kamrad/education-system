@@ -12,7 +12,7 @@ namespace EDU.WebApi.Controllers
     [ApiController]
     public class GroupsController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("get")]
         public async Task<IActionResult> GetAllGroups(
             [FromServices] IGetAllGroupsUseCase getAllGroupsUseCase,
             [FromServices] GetAllGroupsPresenter getAllGroupsPresenter)
@@ -21,7 +21,7 @@ namespace EDU.WebApi.Controllers
             return getAllGroupsPresenter.ViewModel;
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateGroup(
             [FromServices] ICreateGroupUseCase createGroupUseCase,
             [FromServices] CreateGroupPresenter createGroupPresenter,
@@ -31,7 +31,7 @@ namespace EDU.WebApi.Controllers
             return createGroupPresenter.ViewModel;
         }
 
-        [HttpDelete]
+        [HttpDelete("delete")]
         public async Task<IActionResult> DeleteGroup(
             [FromServices] IDeleteGroupUseCase deleteGroupUseCase,
             [FromServices] DeleteGroupPresenter deleteGroupPresenter,
@@ -41,7 +41,7 @@ namespace EDU.WebApi.Controllers
             return deleteGroupPresenter.ViewModel;
         }
 
-        [HttpPut]
+        [HttpPut("update")]
         public async Task<IActionResult> UpdateGroup(
             [FromServices] IUpdateGroupUseCase updateGroupUseCase,
             [FromServices] UpdateGroupPresenter updateGroupPresenter,
@@ -51,7 +51,7 @@ namespace EDU.WebApi.Controllers
             return updateGroupPresenter.ViewModel;
         }
 
-        [HttpPost]
+        [HttpPost("add-student")]
         public async Task<IActionResult> AddStudent(
             [FromServices] IAddStudentUseCase addStudentUseCase,
             [FromServices] AddStudentPresenter addStudentPresenter,
@@ -61,7 +61,7 @@ namespace EDU.WebApi.Controllers
             return addStudentPresenter.ViewModel;
         }
 
-        [HttpPost]
+        [HttpDelete("remove-student")]
         public async Task<IActionResult> RemoveStudent(
             [FromServices] IRemoveStudentUseCase removeStudentUseCase,
             [FromServices] RemoveStudentPresenter removeStudentPresenter,

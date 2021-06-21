@@ -17,8 +17,10 @@ namespace EDU.Application.UseCases.Users
 
         public async Task Execute(ChangeRoleInput input)
         {
+            if (input == null) { outputPort.WriteError(""); return; }
+
             var user = await userRepository.Get(input.UserId);
-            if (user == null) { outputPort.NotFound(""); }
+            if (user == null) { outputPort.NotFound(""); return; }
 
             bool success = await userRepository.ChangeRole(user.Id, input.RolesId);
             outputPort.Standart(new ChangeRoleOutput(success));

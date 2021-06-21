@@ -5,30 +5,30 @@ using System.Reflection;
 
 namespace EDU.Infrastructure
 {
-    public sealed class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         // TODO: Add documentation
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Discipline> Disciplines { get; set; }
-        public DbSet<EducationalCourse> EducationalCourses { get; set; }
-        public DbSet<Exam> Exams { get; set; }
-        public DbSet<Faculty> Faculties { get; set; }
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<Lesson> Lessons { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Semester> Semesters { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<DepartamentDisciplines> DepartamentDisciplines { get; set; }
-        public DbSet<DepartamentGroups> DepartamentGroups { get; set; }
-        public DbSet<DepartmentSemesters> DepartmentSemesters { get; set; }
-        public DbSet<EducationalCourseGroups> EducationalCourseGroups { get; set; }
-        public DbSet<EducationalCourseLessons> EducationalCourseLessons { get; set; }
-        public DbSet<ExamResults> ExamResults { get; set; }
-        public DbSet<FacultyDepartments> FacultyDepartments { get; set; }
-        public DbSet<GroupStudents> GroupStudents { get; set; }
-        public DbSet<SemesterEducationalCourses> SemesterEducationalCourses { get; set; }
-        public DbSet<SemesterExams> SemesterExams { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Discipline> Disciplines { get; set; }
+        public virtual DbSet<EducationalCourse> EducationalCourses { get; set; }
+        public virtual DbSet<Exam> Exams { get; set; }
+        public virtual DbSet<Faculty> Faculties { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Lesson> Lessons { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Semester> Semesters { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<DepartamentDisciplines> DepartamentDisciplines { get; set; }
+        public virtual DbSet<DepartamentGroups> DepartamentGroups { get; set; }
+        public virtual DbSet<DepartmentSemesters> DepartmentSemesters { get; set; }
+        public virtual DbSet<EducationalCourseGroups> EducationalCourseGroups { get; set; }
+        public virtual DbSet<EducationalCourseLessons> EducationalCourseLessons { get; set; }
+        public virtual DbSet<ExamResults> ExamResults { get; set; }
+        public virtual DbSet<FacultyDepartments> FacultyDepartments { get; set; }
+        public virtual DbSet<GroupStudents> GroupStudents { get; set; }
+        public virtual DbSet<SemesterEducationalCourses> SemesterEducationalCourses { get; set; }
+        public virtual DbSet<SemesterExams> SemesterExams { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 

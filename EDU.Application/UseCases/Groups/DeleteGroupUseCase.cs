@@ -17,7 +17,8 @@ namespace EDU.Application.UseCases.Groups
 
         public async Task Execute(DeleteGroupInput input)
         {
-            if (await groupRepository.Get(input.GroupId) == null) { outputPort.NotFound(""); }
+            if (input == null) { outputPort.WriteError(""); return; }
+            if (await groupRepository.Get(input.GroupId) == null) { outputPort.NotFound(""); return; }
 
             bool success = await groupRepository.Remove(input.GroupId);
             outputPort.Standart(new DeleteGroupOutput(success));

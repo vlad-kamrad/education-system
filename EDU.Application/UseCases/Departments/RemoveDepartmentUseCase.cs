@@ -20,8 +20,8 @@ namespace EDU.Application.UseCases.Departments
 
         public async Task Execute(RemoveDepartmentInput input)
         {
-            if (input == null) { outputPort.WriteError(""); }
-            if (await departmentRepository.GetDepartment(input.DepartmentId) == null) { outputPort.NotFound(""); }
+            if (input == null) { outputPort.WriteError(""); return; }
+            if (await departmentRepository.GetDepartment(input.DepartmentId) == null) { outputPort.NotFound(""); return; }
 
             bool success = await departmentRepository.Remove(input.DepartmentId);
             outputPort.Standart(new RemoveDepartmentOutput(success));

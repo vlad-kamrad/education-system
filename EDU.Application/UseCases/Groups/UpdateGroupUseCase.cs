@@ -17,7 +17,8 @@ namespace EDU.Application.UseCases.Groups
 
         public async Task Execute(UpdateGroupInput input)
         {
-            if (await groupRepository.Get(input.UpdatedGroup.Id) == null) { outputPort.NotFound(""); }
+            if (input == null) { outputPort.WriteError(""); return; }
+            if (await groupRepository.Get(input.UpdatedGroup.Id) == null) { outputPort.NotFound(""); return; }
 
             bool success = await groupRepository.Update(input.UpdatedGroup);
             outputPort.Standart(new UpdateGroupOutput(success));

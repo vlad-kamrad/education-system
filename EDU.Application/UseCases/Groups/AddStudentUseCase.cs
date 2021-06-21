@@ -24,10 +24,12 @@ namespace EDU.Application.UseCases.Groups
 
         public async Task Execute(AddStudentInput input)
         {
+            if (input == null) { outputPort.WriteError(""); return; }
+
             if (
                 await groupRepository.Get(input.GroupId) == null ||
                 await userRepository.Get(input.StudentId) == null
-               ) { outputPort.NotFound(""); }
+               ) { outputPort.NotFound(""); return; }
 
             bool success = await groupRepository.AddStudent(input.GroupId, input.StudentId);
             outputPort.Standart(new AddStudentOutput(success));

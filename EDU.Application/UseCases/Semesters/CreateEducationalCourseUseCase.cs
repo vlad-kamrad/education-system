@@ -21,6 +21,8 @@ namespace EDU.Application.UseCases.Semesters
 
         public async Task Execute(CreateEducationalCourseInput input)
         {
+            if (input == null) { outputPort.WriteError(""); return; }
+
             bool success = await semesterRepository.CreateEducationCourse(
                 new EducationalCourse() { Description = input.Description, Teacher = input.Teacher });
             outputPort.Standart(new CreateEducationalCourseOutput(success));
