@@ -24,8 +24,7 @@ const UserList = () => {
   useEffect(() => {
     setLoading(true);
     (async () => {
-      await HttpRequest.get(getUsersUrl).then(({ users }) => {
-        console.log('useEffect');
+      await HttpRequest.get(getUsersUrl).then((users) => {
         setState(p => ({ ...p, users: [...users] }));
         setLoading(false);
       });
@@ -45,7 +44,7 @@ const UserList = () => {
     const allRoles = state.roles;
     return (
       <div className='chbxs'>
-        {allRoles.map((role, i) => {
+     {/*    {allRoles.map((role, i) => {
           const isUsedUser = roles.some(d => d === role);
           return (
             <div key={`chbx-${i}`}>
@@ -71,7 +70,7 @@ const UserList = () => {
               </Checkbox>
             </div>
           );
-        })}
+        })} */}
         <Button
           onClick={async () => {
             await HttpRequest.post(changeRolesUrl, {
@@ -112,8 +111,8 @@ const UserList = () => {
             onClick={() => {
               setEditedUser(p => ({
                 ...p,
-                editedUser: item.id,
-                desRoles: item.roles
+                editedUser: item?.id,
+                desRoles: item?.roles
               }));
             }}
           >
@@ -124,8 +123,8 @@ const UserList = () => {
     >
       <Skeleton loading={loading} title={false} active>
         <div>
-          <List.Item.Meta title={item.email} />
-          {`${item.name} ${item.surname}`}
+          <List.Item.Meta title={item?.email} />
+          {`${item?.name} ${item?.surname}`}
         </div>
       </Skeleton>
     </List.Item>

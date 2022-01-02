@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { List, Skeleton } from 'antd';
-import Auth from '../../utils/Auth';
-import redirectTo from '../../utils/redirectTo';
-import { BASE_URL, API_ENDPOINTS } from '../../constants/index';
-import HttpRequest from '../../utils/HttpRequest';
-import EDUContext from '../../contexts/EDU.Context';
+import React, { useState, useEffect, useContext } from "react";
+import { List, Skeleton } from "antd";
+import Auth from "../../utils/Auth";
+import redirectTo from "../../utils/redirectTo";
+import { BASE_URL, API_ENDPOINTS } from "../../constants/index";
+import HttpRequest from "../../utils/HttpRequest";
+import EDUContext from "../../contexts/EDU.Context";
 
-import './DepartmentsList.css';
+import "./DepartmentsList.css";
 
 const getDepartmentsUrl = BASE_URL + API_ENDPOINTS.departments;
 
@@ -22,7 +22,8 @@ const DepartmentsList = () => {
     setLoading(true);
     (async () => {
       await HttpRequest.get(getDepartmentsUrl).then(({ departments }) => {
-        setState(p => ({ ...p, departments: [...departments] }));
+        if (departments?.length)
+          setState(p => ({ ...p, departments: [...departments] }));
         setLoading(false);
       });
     })();
@@ -40,15 +41,15 @@ const DepartmentsList = () => {
   );
 
   return (
-    <div className='body'>
+    <div className="body">
       <List
         loading={loading}
-        itemLayout='horizontal'
+        itemLayout="horizontal"
         pagination={{
           onChange: page => console.log(page),
-          pageSize: 5
+          pageSize: 5,
         }}
-        dataSource={state.departments.sort((a, b) => b.id - a.id)}
+        dataSource={state?.departments?.sort((a, b) => b.id - a.id)}
         renderItem={renderItem}
       />
     </div>

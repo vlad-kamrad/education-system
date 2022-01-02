@@ -21,7 +21,7 @@ const LoginForm = () => {
     if (pending) {
       (async () => {
         const body = {
-          name: username,
+          username,
           password: password
         };
 

@@ -1,6 +1,8 @@
 ﻿using EDU.Domain.Entities;
 using EDU.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using System;
 using System.Reflection;
 
 namespace EDU.Infrastructure
@@ -59,6 +61,21 @@ namespace EDU.Infrastructure
             builder.Entity<UserRole>().HasData(new { Id = 2, UserId = 1, RoleId = 2 });
             builder.Entity<UserRole>().HasData(new { Id = 3, UserId = 1, RoleId = 3 });
             builder.Entity<UserRole>().HasData(new { Id = 4, UserId = 1, RoleId = 4 });
+        }
+    }
+
+    public class AppContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+    {
+        public ApplicationDbContext CreateDbContext(string[] args)
+        {
+            var folder = Environment.SpecialFolder.LocalApplicationData;
+            var path = Environment.GetFolderPath(folder);
+            var dbPath = System.IO.Path.Join(path, "app.db");
+
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
+
+            return new ApplicationDbContext(optionsBuilder.Options);
         }
     }
 }

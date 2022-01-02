@@ -18,7 +18,7 @@ namespace EDU.WebApi.Controllers
     [ApiController]
     public class DepartmentController : ControllerBase
     {
-        [HttpGet("get")]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllDepartments(
             [FromServices] IGetAllDepartmentsUseCase getAllDepartmentsUseCase,
             [FromServices] GetAllDepartmentsPresenter getAllDepartmentsPresenter)

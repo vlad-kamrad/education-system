@@ -27,7 +27,7 @@ const RegisterForm = () => {
   useEffect(() => {
     if (pending) {
       (async () => {
-        const body = { name, password, email };
+        const body = { username: name, password, email };
 
         await Auth.register(body)
           .then(() => redirectTo.index())

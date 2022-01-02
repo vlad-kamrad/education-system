@@ -46,9 +46,14 @@ namespace EDU.WebApi
                 .AddPresenters()
                 .AddServices(Configuration);
 
+            var folder = Environment.SpecialFolder.LocalApplicationData;
+            var path = Environment.GetFolderPath(folder);
+            var dbPath = System.IO.Path.Join(path, "app.db");
+
             // TODO: separate to infrastructure
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                options.UseSqlite($"Data Source={dbPath}")
             );
 
             services
@@ -65,6 +70,14 @@ namespace EDU.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true)
+                // Allow only this origin can also have multiple origins separated with comma
+                //.WithOrigins("https://localhost:44351"));
+                .AllowCredentials()); // allow credentials
 
             app.UseHttpsRedirection();
 
