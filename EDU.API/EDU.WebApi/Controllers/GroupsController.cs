@@ -12,7 +12,7 @@ namespace EDU.WebApi.Controllers
     [ApiController]
     public class GroupsController : ControllerBase
     {
-        [HttpGet("get")]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllGroups(
             [FromServices] IGetAllGroupsUseCase getAllGroupsUseCase,
             [FromServices] GetAllGroupsPresenter getAllGroupsPresenter)
