@@ -4,5 +4,8 @@ export default {
   refresh: '/auth/refresh',
   authTest: '/auth/protected',
   users: '/Users/get',
-  departments: '/Department/all'
+  departments: '/Department/all',
+  groups: '/Groups/all',
+  createGroup: '/Groups/create',
+  createCS: '/'
 };

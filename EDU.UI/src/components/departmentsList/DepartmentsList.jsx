@@ -6,8 +6,6 @@ import { BASE_URL, API_ENDPOINTS } from "../../constants/index";
 import HttpRequest from "../../utils/HttpRequest";
 import EDUContext from "../../contexts/EDU.Context";
 
-import "./DepartmentsList.css";
-
 const getDepartmentsUrl = BASE_URL + API_ENDPOINTS.departments;
 
 const DepartmentsList = () => {
@@ -45,10 +43,7 @@ const DepartmentsList = () => {
       <List
         loading={loading}
         itemLayout="horizontal"
-        pagination={{
-          onChange: page => console.log(page),
-          pageSize: 5,
-        }}
+        pagination={{ pageSize: 5 }}
         dataSource={state?.departments?.sort((a, b) => b.id - a.id)}
         renderItem={renderItem}
       />

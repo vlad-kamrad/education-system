@@ -1,7 +1,62 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "../node_modules/antd/dist/antd.compact.css";
 
+@import "antd/dist/antd.css";
+
 .ant-list {
   margin: auto;
   padding: initial;
+}
+
+.centered {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group button {
+  margin-right: 30px;
+}
+
+.logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  color: white;
+  font-size: 22px;
+  margin-right: 20px;
+}
+
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+[data-theme="dark"] .site-layout-content {
+  background: #141414;
+}
+
+.ant-modal-footer {
+  display: none;
+}
+
+.view-group-modal .ant-modal-content {
+  width: 80vw;
+  transform: translateX(-20vw);
+}
+
+[type="submit"] {
+  margin-right: 15px;
+}
+
+.view-all-cs-modal .ant-modal-content {
+}
+
+.view-all-cs-modal .ant-list-item-meta-title {
+  text-transform: capitalize;
 }

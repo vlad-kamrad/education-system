@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Button, Spinner, Alert } from 'react-bootstrap';
-import Auth from '../../../utils/Auth';
-import { MESSAGES } from '../../../constants';
-import redirectTo from '../../../utils/redirectTo';
-import './RegisterForm.css';
+import React, { useState, useEffect } from "react";
+import { Form, Button, Spinner, Alert } from "react-bootstrap";
+import Auth from "../../../utils/Auth";
+import { MESSAGES } from "../../../constants";
+import redirectTo from "../../../utils/redirectTo";
+import "./RegisterForm.css";
 
 const RegisterForm = () => {
   const [{ name, password, email }, setState] = useState({});
@@ -42,56 +42,64 @@ const RegisterForm = () => {
   return (
     <>
       {errorMessage && (
-        <Alert key='error' variant='danger'>
+        <Alert key="error" variant="danger">
           {errorMessage}
         </Alert>
       )}
-      <div className='container'>
-        <Form.Group>
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Enter username'
-            onChange={e => onChangeHandler(e)(onChangeUsername)}
-          />
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Password'
-            onChange={e => onChangeHandler(e)(onChangePassword)}
-          />
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type='email'
-            placeholder='Enter email'
-            onChange={e => onChangeHandler(e)(onChangeEmail)}
-          />
-          <Form.Text className='text-muted'>
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
-        <Button variant='primary' onClick={onRegister} className='submitBtn'>
-          {pending ? (
-            <Spinner
-              as='span'
-              animation='border'
-              size='sm'
-              role='status'
-              aria-hidden='true'
+      <div className="container">
+        <div className="centered">
+          <Form.Group>
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter username"
+              onChange={e => onChangeHandler(e)(onChangeUsername)}
             />
-          ) : (
-            'Registration'
-          )}
-        </Button>
-        <Button variant='light' onClick={redirectTo.login}>
-          Login
-        </Button>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              onChange={e => onChangeHandler(e)(onChangePassword)}
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              onChange={e => onChangeHandler(e)(onChangeEmail)}
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group>
+            <Button
+              variant="primary"
+              onClick={onRegister}
+              className="submitBtn"
+            >
+              {pending ? (
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+              ) : (
+                "Registration"
+              )}
+            </Button>
+            <Button variant="light" onClick={redirectTo.login}>
+              Login
+            </Button>
+          </Form.Group>
+        </div>
       </div>
     </>
   );
